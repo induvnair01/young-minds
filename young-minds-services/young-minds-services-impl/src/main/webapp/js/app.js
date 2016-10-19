@@ -10,3 +10,4 @@
 			controller : 'myRegisterCntrl'
 		});
 	}
+
