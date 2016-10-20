@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.youngminds.services.api.LoginResource;
+import com.youngminds.services.impl.camel.LoginRoutes;
+import com.youngminds.services.modal.User;
 
 @Component
 public class LoginResourceJersey implements LoginResource{
@@ -29,6 +31,16 @@ public class LoginResourceJersey implements LoginResource{
 			return Response.noContent().build();
 		}
 		
+	}
+	@Override
+	public Response registerUser(User user) {
+		try{
+			String data = template.requestBody(LoginRoutes.REGISTER_USER_ROUTE,user, String.class);
+			return Response.ok(data).build();
+		}catch (CamelExecutionException cee){
+			//we can handle exception here
+			return Response.status(500).entity(cee).build();
+		}
 	}
 
 }
