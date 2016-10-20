@@ -1,15 +1,18 @@
 var app=angular.module('myApp');
 app.controller('myCntrl', myCntrl);
 
-function myCntrl($scope, $modal,$rootScope) {
+function myCntrl($scope, $modal,$rootScope,$location) {
+	myCntrl.$inject = ['$scope', '$location'];	  
 	  
-	  
+	
+	
 	  $scope.user="Cannot be Empty";
 	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
 	    
 	$scope.login=function()
 	{
 		console.log('hi');
+		$location.path("/successPage");
 	}
 	    
 }

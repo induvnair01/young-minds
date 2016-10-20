@@ -9,5 +9,9 @@
 			templateUrl : 'register.html',
 			controller : 'myRegisterCntrl'
 		});
+		$routeProvider.when('/successPage', {
+			templateUrl : 'successPage.html'
+		
+		});
 	}
 
