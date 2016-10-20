@@ -7,7 +7,10 @@ function myCntrl($scope, $modal,$rootScope) {
 	  $scope.user="Cannot be Empty";
 	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
 	    
-	   
+	$scope.login=function()
+	{
+		console.log('hi');
+	}
 	    
 }
 
