@@ -15,6 +15,7 @@ public class LoginRoutes extends RouteBuilder{
 
 	private static final Logger LOGGER=Logger.getLogger(LoginRoutes.class);
 	
+	public static final String VALIDATE_USER_ROUTE = "direct:validateUserRoute";
 	public static final String REGISTER_USER_ROUTE = "direct:registerUserRoute";
 	
 	@Autowired
@@ -26,16 +27,17 @@ public class LoginRoutes extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		
-		//move route name into a constant
-		from("direct:testLoginRoute")
-			.routeId("id")
+		from(VALIDATE_USER_ROUTE)
+			.routeId(VALIDATE_USER_ROUTE)
 			.process(new Processor() {
 				
 				@Override
 				public void process(Exchange exchange) throws Exception {
-					// TODO Auto-generated method stub
-					LOGGER.debug("login route executed **********************");
-					String data="{\"message\":\" 'Hi "+exchange.getIn().getBody()+"' \nThis is a test data \"}";
+					Boolean isUserExists = userDao.validateUser(exchange.getIn().getBody(User.class));
+					String data = null;
+					if(isUserExists){
+						data = "The given mobile no and passward is valid";
+					}
 					exchange.getIn().setBody(data);
 				}
 			})

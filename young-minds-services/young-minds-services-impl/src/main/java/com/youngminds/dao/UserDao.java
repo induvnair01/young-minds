@@ -6,6 +6,8 @@ public interface UserDao {
 
 	void inserUser(User user);
 
+	boolean validateUser(User user);
+
 	
 
 }
