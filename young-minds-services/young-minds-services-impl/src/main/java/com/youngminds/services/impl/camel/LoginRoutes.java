@@ -33,12 +33,8 @@ public class LoginRoutes extends RouteBuilder{
 				
 				@Override
 				public void process(Exchange exchange) throws Exception {
-					Boolean isUserExists = userDao.validateUser(exchange.getIn().getBody(User.class));
-					String data = null;
-					if(isUserExists){
-						data = "The given mobile no and passward is valid";
-					}
-					exchange.getIn().setBody(data);
+					User isUserExists = userDao.validateUser(exchange.getIn().getBody(User.class));
+					exchange.getIn().setBody(isUserExists);
 				}
 			})
 		.end();
@@ -53,7 +49,7 @@ public class LoginRoutes extends RouteBuilder{
 					LOGGER.debug("login route executed **********************");
 					String data="{\"message\":\" 'registered user details "+exchange.getIn().getBody(User.class);
 					userDao.inserUser(exchange.getIn().getBody(User.class));
-					exchange.getIn().setBody(data);
+					//exchange.getIn().setBody(data);
 				}
 			})
 		.end();

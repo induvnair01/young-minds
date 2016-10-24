@@ -25,15 +25,18 @@ public class LoginResourceJersey implements LoginResource{
 	}
 	@Override
 	public Response userLogin(User user) {
+		LOGGER.info("****** entered into userLogin()");
 		try{
-			String data = template.requestBody(LoginRoutes.VALIDATE_USER_ROUTE,user, String.class);
+			User data = template.requestBody(LoginRoutes.VALIDATE_USER_ROUTE,user, User.class);
 			if(StringUtils.isEmpty(data)){
+				LOGGER.debug("The given user details::"+user+" are invalid");
 				return Response.status(Status.UNAUTHORIZED).build();
 			}
+			LOGGER.debug("The given user details::"+user+" are valid");
 			return Response.ok(data).build();
 		}catch (CamelExecutionException cee){
-			//we can handle exception here
-			return Response.noContent().build();
+			LOGGER.error("*******  userLogin::Exception::"+cee);
+			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		
 	}
@@ -41,9 +44,10 @@ public class LoginResourceJersey implements LoginResource{
 	public Response registerUser(User user) {
 		try{
 			String data = template.requestBody(LoginRoutes.REGISTER_USER_ROUTE,user, String.class);
-			return Response.ok(data).build();
+			LOGGER.debug("*******  registerUser::"+data);
+			return Response.ok(user).build();
 		}catch (CamelExecutionException cee){
-			//we can handle exception here
+			LOGGER.error("*******  registerUser::Exception::"+cee);
 			return Response.status(500).entity(cee).build();
 		}
 	}
