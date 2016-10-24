@@ -6,7 +6,7 @@ function myCntrl($scope, $modal,$rootScope,$location) {
 	  
 	
 	
-	  $scope.user="Cannot be Empty";
+	  $scope.user="Name";
 	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
 	    
 	$scope.login=function()
@@ -16,10 +16,7 @@ function myCntrl($scope, $modal,$rootScope,$location) {
 	}
 	    
 }
-
-
-
-app.directive('passwordValidate', function() {
+ app.directive('passwordValidate', function() {
     return {
         require: 'ngModel',
         link: function(scope, elm, attrs, ctrl) {
