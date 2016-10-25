@@ -1,0 +1,66 @@
+
+
+<form name="myRegForm" novalidate>
+
+
+<div class="list">
+<label class="item item-input"> 
+			 <input type="text" placeholder="Name" name="user" ng-model="user" required>
+			 <span style="color: red" ng-show="myRegForm.user.$dirty && myRegForm.user.$invalid"> 
+			 <span ng-show="myRegForm.user.$error.required">Name is required.</span>
+			</span>
+</label> 
+		
+	
+<label class="item item-input"> 
+	  <input type="text" placeholder="Phone Number" placeholder="+91-636-78658" name="phone" ng-pattern="phoneNumbr" ng-model="phone">
+	  <span class="error" ng-show="myRegForm.phone.$error.required">Required!</span>
+      <span class="error" ng-show="myRegForm.phone.$error.minlength">Phone no not less that 10 char.</span>
+      <span class="error" ng-show="myRegForm.phone.$error.maxlength">Phone no not more than 11 char.</span>
+      <br><span class="error" ng-show="myRegForm.phone.$error.pattern" style="color: red">Please match pattern [+91-036-78658 || 91-036-78658]</span>
+</label>
+
+
+ <label  class="item item-input" for="password">
+       <input type="password" placeholder="Password" id="password" name="password" ng-model="formData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+   <span style="color: red" ng-show="myRegForm.password.$error.required && myRegForm.password.$dirty">required</span>
+   <span style="color: red" ng-show="!myRegForm.password.$error.required && (myRegForm.password.$error.minlength || myRegForm.password.$error.maxlength) && myRegForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+   <span style="color: red" ng-show="!myRegForm.password.$error.required && !myRegForm.password.$error.minlength && !myRegForm.password.$error.maxlength && myRegForm.password.$error.pattern && myRegForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+ </label>  
+ 
+ 
+ <label class="item item-input">
+ 
+
+    <input type="password" placeholder="Confirm Password" id="password_c" name="password_c" ng-model="formData.password_c" valid-password-c required  />
+   <span ng-show="myRegForm.password_c.$error.required && myRegForm.password_c.$dirty" style="color: red">Please confirm your password.</span>
+   <span ng-show="!myRegForm.password_c.$error.required && myRegForm.password_c.$error.noMatch && myRegForm.password.$dirty" style="color: red">Passwords do not match.</span>
+ 
+ </label>
+ 
+<button class="button button-block button-positive" ng-click=""> SignUp</button>
+
+
+	<a  href="#/" >
+          Registered User??? </a>	
+</div>
+
+
+<div class="bar bar-footer bar-positive">
+<button class="button icon ion-navicon pull-right"></button>
+</div>
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+

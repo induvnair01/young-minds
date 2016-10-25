@@ -1,0 +1,29 @@
+ <div
+	class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+	<div class="tabs">
+		<a class="tab-item" href="#/viewProducts"> <i class="icon ion-bag"></i>
+			Products
+		</a> <a class="tab-item" href="#/viewCart"> <i
+			class="icon ion-ios-cart"></i> Cart
+		</a> <a class="tab-item" href="#/viewWallet"> <i class="icon ion-cash"></i>
+			Wallet
+		</a>
+
+	</div>
+</div> 
+<ion-content style="margin-bottom: 12%; margin-top: 13%;">
+<div class="product-list small-block-grid-3 ">
+	<div ng-repeat="product in products">
+		<figure>
+			<img ng-src="{{product.image}}" alt="{{product.title}}"
+				style="width: 10%; margin-top:10%">
+			<figcaption>
+				<h2>{{product.title}}, {{product.price}}$</h2>
+				<button ng-click="addToCart(product);">Add to cart</button>
+			</figcaption>
+		</figure>
+	</div>
+</div>
+
+</ion-content>
+
