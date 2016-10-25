@@ -4,15 +4,12 @@ app.controller('myRegisterCntrl', myRegisterCntrl);
 function myRegisterCntrl($scope, $modal,$rootScope) {
 	  
 	  
-	  $scope.user="Cannot be Empty";
+	  $scope.user="Name";
 	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
 	    
 	   
 	    
 }
-
-
-
 app.directive('passwordValidattion', function() {
     return {
         require: 'ngModel',

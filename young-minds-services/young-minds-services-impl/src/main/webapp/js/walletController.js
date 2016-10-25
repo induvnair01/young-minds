@@ -1,10 +1,14 @@
 var app=angular.module('myApp');
-app.controller('myCntrl', myCntrl);
+app.controller('walletCntrl', walletCntrl);
 
-function myCntrl($scope, $modal,$rootScope,$location) {
-	myCntrl.$inject = ['$scope', '$location'];	  
+function walletCntrl($scope, $modal,$rootScope,$location) {
 	  
-	
+	  
+	$scope.redirectToHome=function()
+	{
+		console.log('hi');
+		$location.path("/successPage");
+	}
 	
 	  $scope.user="Name";
 	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
