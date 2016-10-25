@@ -1,46 +1,29 @@
-<div class="bar bar-header bar-positive">
-   <button class="button icon ion-navicon"></button>
-      <h1 class="title">My DashBoard</h1>
-   <button class="button icon ion-home" ></button>
+ <div
+	class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+	<div class="tabs">
+		<a class="tab-item" href="#/viewProducts"> <i class="icon ion-bag"></i>
+			Products
+		</a> <a class="tab-item" href="#/viewCart"> <i
+			class="icon ion-ios-cart"></i> Cart
+		</a> <a class="tab-item" href="#/viewWallet"> <i class="icon ion-cash"></i>
+			Wallet
+		</a>
+
+	</div>
+</div> 
+<ion-content style="margin-bottom: 12%; margin-top: 13%;">
+<div class="product-list small-block-grid-3 ">
+	<div ng-repeat="product in products">
+		<figure>
+			<img ng-src="{{product.image}}" alt="{{product.title}}"
+				style="width: 10%; margin-top:10%">
+			<figcaption>
+				<h2>{{product.title}}, {{product.price}}$</h2>
+				<button ng-click="addToCart(product);">Add to cart</button>
+			</figcaption>
+		</figure>
+	</div>
 </div>
 
-
-
-<ion-content class="has-header">
-	<!--<div class="padding-horizontal">
-		<h4 class="center">Sign in</h4>
-		
-		<button class="button button-block button-positive">Sign In</button>
-	</div>
-	-->
-<hr>
-	<div class="padding-horizontal">
-		<h4 class="center">Sucessfully Logged In !!</h4>
-		<!--<button class="button button-block button-positive">Sign Up</button>-->
-	</div>
-	
-	<div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-    <div class="tabs">
-      <a class="tab-item active" href="#/viewWallet">
-        <i class="icon ion-cash"></i>
-        Wallet
-      </a>
-      <a class="tab-item" href="#/viewCart">
-        <i class="icon ion-ios-cart"></i>
-        Cart
-      </a>
-      <a class="tab-item" href="#/viewProducts">
-        <i class="icon ion-star"></i>
-        Products
-      </a>
-    </div>
-  </div>
-
-	
 </ion-content>
-
-<div class="bar bar-footer bar-positive">
-<button class="button icon ion-navicon pull-right"></button>
-
-</div>	
 

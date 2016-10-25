@@ -1,0 +1,29 @@
+{"products": [
+
+	{
+		"id": 1,
+		"title": "Headset",
+		"image": "http://ecx.images-amazon.com/images/I/31Ceamz95XL._SL75_.jpg",
+		"price": 25
+	},
+	{
+		"id": 2,
+		"title": "Watch",
+		"image": "http://ecx.images-amazon.com/images/I/51PQM3vrqFL.jpg",
+		"price": 50
+	},
+	
+	{
+		"id": 3,
+		"title": "Brown Shoes",
+		"image": "https://images-na.ssl-images-amazon.com/images/I/91K5bgx-LwL._UY500_.jpg",
+		"price": 8
+	},
+	{
+		"id": 4,
+		"title": "Pink Shoes",
+		"image": "https://images-na.ssl-images-amazon.com/images/I/81JEOfdzjKL._UY500_.jpg",
+		"price": 10
+	}
+	
+]}

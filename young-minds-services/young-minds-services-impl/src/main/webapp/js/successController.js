@@ -1,15 +1,26 @@
 var app=angular.module('myApp');
-app.controller('myCntrl', myCntrl);
+app.controller('successCntrl', successCntrl);
 
-function myCntrl($scope, $modal,$rootScope,$location) {
-	myCntrl.$inject = ['$scope', '$location'];	  
-	$scope.user="Name";
-	$scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
-	$scope.login = function() {
-
+function successCntrl($scope, $modal,$rootScope,$location,$http) {
+	  
+	$http.get('products.json').success(function (response) {
+		$scope.products = response.products;
+	});
+	$scope.redirectToHome=function()
+	{
+		console.log('hi');
 		$location.path("/successPage");
-
 	}
+	
+	  $scope.user="Name";
+	    $scope.phoneNumbr = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
+	    
+	$scope.login=function()
+	{
+		console.log('hi');
+		$location.path("/successPage");
+	}
+	    
 }
  app.directive('passwordValidate', function() {
     return {

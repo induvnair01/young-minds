@@ -1,9 +1,5 @@
-
-
 <form name="myRegForm" novalidate>
-
-
-<div class="list">
+<div class="list has-header">
 <label class="item item-input"> 
 			 <input type="text" placeholder="Name" name="user" ng-model="user" required>
 			 <span style="color: red" ng-show="myRegForm.user.$dirty && myRegForm.user.$invalid"> 
@@ -17,7 +13,7 @@
 	  <span class="error" ng-show="myRegForm.phone.$error.required">Required!</span>
       <span class="error" ng-show="myRegForm.phone.$error.minlength">Phone no not less that 10 char.</span>
       <span class="error" ng-show="myRegForm.phone.$error.maxlength">Phone no not more than 11 char.</span>
-      <br><span class="error" ng-show="myRegForm.phone.$error.pattern" style="color: red">Please match pattern [+91-036-78658 || 91-036-78658]</span>
+      <br><span class="error" ng-show="myRegForm.phone.$error.pattern" style="color: red">Invalid Phone</span>
 </label>
 
 
@@ -37,22 +33,13 @@
    <span ng-show="!myRegForm.password_c.$error.required && myRegForm.password_c.$error.noMatch && myRegForm.password.$dirty" style="color: red">Passwords do not match.</span>
  
  </label>
- 
-<button class="button button-block button-positive" ng-click=""> SignUp</button>
 
+<button class="button button-block button-positive" ng-click="" style="margin-bottom: 3%;"> SignUp</button>
 
-	<a  href="#/" >
-          Registered User??? </a>	
 </div>
-
-
-<div class="bar bar-footer bar-positive">
-<button class="button icon ion-navicon pull-right"></button>
-</div>
-
-
-
-
+	<div class="bar bar-footer bar-positive">
+		<button class="button icon ion-navicon pull-right"></button>
+	</div>
 </form>
 
 
